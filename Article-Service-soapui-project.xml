@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="0ca39e37-19ae-4825-a60a-ea15c672647a" activeEnvironment="Default" name="Article_Service" resourceRoot="" soapui-version="5.6.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="30ecc3dc-7e4d-4571-99fa-41a4034f15fd" wsaVersion="NONE" name="ArticlePortSoap11" type="wsdl" bindingName="{https://medium.com/article}ArticlePortSoap11" soapVersion="1_1" anonymous="optional" definition="file:/Users/paras16jul1991/git/soap_project/article.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/paras16jul1991/git/soap_project/article.wsdl"><con:part><con:url>file:/Users/paras16jul1991/git/soap_project/article.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="https://medium.com/article" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="https://medium.com/article" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="https://medium.com/article">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="https://medium.com/article" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="getArticleRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="id" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getArticleResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="article" type="tns:article"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="article">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int"/>
+          <xsd:element name="name" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getArticleResponse">
+    <wsdl:part element="tns:getArticleResponse" name="getArticleResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getArticleRequest">
+    <wsdl:part element="tns:getArticleRequest" name="getArticleRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ArticlePort">
+    <wsdl:operation name="getArticle">
+      <wsdl:input message="tns:getArticleRequest" name="getArticleRequest"></wsdl:input>
+      <wsdl:output message="tns:getArticleResponse" name="getArticleResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ArticlePortSoap11" type="tns:ArticlePort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getArticle">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getArticleRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getArticleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ArticlePortService">
+    <wsdl:port binding="tns:ArticlePortSoap11" name="ArticlePortSoap11">
+      <soap:address location="localhost:8088/article"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://Parass-MacBook-Air.local:8088/article</con:endpoint><con:endpoint>localhost:8088/article</con:endpoint></con:endpoints><con:operation id="0c8ea1e1-361b-415d-8b94-8777d463cb65" isOneWay="false" action="" name="getArticle" bindingOperationName="getArticle" type="Request-Response" outputName="getArticleResponse" inputName="getArticleRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="896c03db-c1cb-4ef6-9e7b-980afe4779a4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>localhost:8088/article</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:art="https://medium.com/article">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <art:getArticleRequest>
+         <art:id>?</art:id>
+      </art:getArticleRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://medium.com/article/ArticlePort/getArticleRequest"/></con:call></con:operation></con:interface><con:testSuite id="7b8452f5-efd7-4bd3-8b29-c7fde4718dc8" name="ArticlePortSoap11 TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="5443a80e-4c30-4650-943c-72a388b02422" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getArticle TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="053de853-631b-4158-839e-b1e2f7bdf142" name="getArticle"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ArticlePortSoap11</con:interface><con:operation>getArticle</con:operation><con:request name="getArticle" id="77cef187-f0da-4686-a195-44814a794053"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>localhost:8088/article</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:art="https://medium.com/article">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <art:getArticleRequest>
+         <art:id>?</art:id>
+      </art:getArticleRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="https://medium.com/article/ArticlePort/getArticleRequest"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:mockService id="6767d36b-8392-44cb-ab19-e44e14add724" port="8088" path="/article" host="Parass-MacBook-Air.local" name="ArticlePortSoap11 MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="getArticle" id="f7250f59-d8e9-4b51-8990-874744d882cc" interface="ArticlePortSoap11" operation="getArticle"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="af75e65c-0bcd-469f-879b-dab2e95a6ef9" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:art="https://medium.com/article">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <art:getArticleResponse>
+         <art:article>
+            <art:id>1</art:id>
+            <art:name>Paras</art:name>
+         </art:article>
+      </art:getArticleResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://medium.com/article/ArticlePort/getArticleResponse"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
